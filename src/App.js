@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import Adoptii from "./pages/Adoptii.jsx";
+import BlanitzS from "./pages/BlanitzS.jsx";
+import Blog from "./pages/Blog.jsx";
+import AddBlanitz from "./pages/AddBlanitz.jsx";
+import BlogS from "./pages/BlogS.jsx";
+import "./style.css"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Adoptii/>}/>
+          <Route path="/blog" element={<Blog/>}/>
+          <Route path="/blanitz/:id" element={<BlanitzS/>}/>
+          <Route path="/addAdoptie" element={<AddBlanitz/>}/>
+          <Route path="/blogS/:id" element={<BlogS/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
